@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700&display=swap');
+
+:root {
+    font-size: 16px;
+    /*font-family: 'Barlow Condensed', sans-serif;*/
+    /*font-family: 'Bellefair', serif;*/
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    #root {
+        padding-top: 40px;
+        height: 100vh;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 96px;
+        padding-left: 55px;
+        .logo-container {
+            border-radius: 50%;
+            background-color: rgb(255, 255, 255);
+            width: 48px;
+            height: 48px;
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+        nav {
+            position: relative;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10%;
+            width: 60%;
+            font-family: 'Barlow Condensed', sans-serif;
+            a {
+                display: inline-flex;
+                gap: 12px;
+                text-decoration: none;
+                z-index: 5;
+                color: rgb(255, 255, 255);
+                letter-spacing: 1px;
+                font-weight: 300;
+                span {
+                    font-weight: 700;
+                }
+            }
+        }
+        nav::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(15px);
+            z-index: 1;
+        }
+        nav::after {
+            content: "";
+            position: absolute;
+            border-top: 1px solid rgba(150, 150, 150, 0.5);
+            width: 58%;
+            right: 95%;
+            z-index: 5;
+        }
+    }
+}
