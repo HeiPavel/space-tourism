@@ -51,12 +51,14 @@ body {
             height: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: stretch;
             gap: 10%;
             width: 60%;
             font-family: 'Barlow Condensed', sans-serif;
             a {
+                position: relative;
                 display: inline-flex;
+                align-items: center;
                 gap: 12px;
                 text-decoration: none;
                 z-index: 5;
@@ -66,6 +68,21 @@ body {
                 span {
                     font-weight: 700;
                 }
+            }
+            a::after {
+                content: "";
+                position: absolute;
+                height: 3px;
+                width: 100%;
+                bottom: 0px;
+                z-index: 5;
+                transition: 0.2s ease;
+            }
+            a.active::after, a.active:hover:after {
+                background-color: rgb(255, 255, 255);
+            }
+            a:hover::after {
+                background-color: rgba(255, 255, 255, 0.5);
             }
         }
         nav::before {
@@ -83,6 +100,7 @@ body {
             border-top: 1px solid rgba(150, 150, 150, 0.5);
             width: 58%;
             right: 95%;
+            top: 50%;
             z-index: 5;
         }
     }
@@ -125,6 +143,10 @@ body {
             font-size: 2rem;
             letter-spacing: 2px;
             cursor: pointer;
+            transition: 0.2s ease;
+        }
+        .explore:hover {
+            box-shadow: 0 0 0 88px rgba(255, 255, 255, 0.1);
         }
     }
 }
