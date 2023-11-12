@@ -16,6 +16,11 @@ html, body {
     padding: 0;
 }
 
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     #root {
         padding-top: 40px;
@@ -24,6 +29,7 @@ body {
         background-size: cover;
         background-repeat: no-repeat;
     }
+    /*Header*/
     header {
         display: flex;
         justify-content: space-between;
@@ -78,6 +84,47 @@ body {
             width: 58%;
             right: 95%;
             z-index: 5;
+        }
+    }
+    /*Main*/
+    /*Home section*/
+    .home-content {
+        margin-top: 251px;
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-end;
+        .text-content {
+            width: 450px;
+            font-family: 'Barlow Condensed', sans-serif;
+            color: rgb(210, 216, 249);
+            h5 {
+                font-size: 1.75rem;
+                font-weight: 400;
+                letter-spacing: 4.75px;
+            }
+            h1 {
+                margin: 1.5rem 0;
+                font-family: 'Bellefair', serif;
+                font-size: 9.375rem;
+                font-weight: 400;
+                color: rgb(255, 255, 255);
+            }
+            p {
+                font-size: 1.125rem;
+                letter-spacing: 1px;
+                line-height: 1.8;
+                text-align: justify;
+            }
+        }
+        .explore {
+            width: 274px;
+            height: 274px;
+            border-radius: 50%;
+            border: none;
+            font-family: 'Bellefair', serif;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            cursor: pointer;
         }
     }
 }

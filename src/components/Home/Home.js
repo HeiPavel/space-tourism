@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import { loadImage } from "../../until/loadImage";
+import { ScreenTypeContext } from "../ScreenTypeContext/ScreenTypeContext";
 
 export const Home = () => {
-    const [screenType, setScreenType] = useState(null);
+    const screenType = useContext(ScreenTypeContext);
     const [image, setImage] = useState(null);
 
     if (screenType) loadImage('media/home/', screenType, 'background-home-', setImage);
@@ -10,31 +11,18 @@ export const Home = () => {
     useEffect(() => {
         const root = document.getElementById('root');
         if (image) root.style.backgroundImage = `url(${image})`;
-
-        let timeoutId = false;
-        const checkScreenWidth = () => {
-            const screenWidth = window.innerWidth;
-            if (screenWidth <= 820 && screenWidth > 480 && screenType !== 'tablet') setScreenType('tablet');
-            if (screenWidth <= 480 && screenType !== 'mobile') setScreenType('mobile');
-            if (screenWidth > 820 && screenType !== 'desktop') setScreenType('desktop');
-        };
-
-        if (!screenType) checkScreenWidth();
-
-        const handleResize = () => {
-            clearTimeout(timeoutId);
-            timeoutId = setTimeout(checkScreenWidth, 50);
-        };
-
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        }
-    }, [screenType, image]);
+    }, [image]);
 
     return (
-        <>
-        </>
+        <section className="home-content">
+            <article className="text-content">
+                <h5>SO, YOU WANT TO TRAVEL TO</h5>
+                <h1>SPACE</h1>
+                <p>Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. 
+                    Well sit back, and relax because we’ll give you a truly out of this world experience!
+                </p>
+            </article>
+            <button className="explore">EXPLORE</button>
+        </section>
     );
 }
