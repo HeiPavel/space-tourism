@@ -1,18 +1,6 @@
-import React, {useState, useEffect, useContext} from "react";
-import { loadImage } from "../../until/loadImage";
-import { ScreenTypeContext } from "../ScreenTypeContext/ScreenTypeContext";
+import React from "react";
 
 export const Home = () => {
-    const screenType = useContext(ScreenTypeContext);
-    const [image, setImage] = useState(null);
-
-    if (screenType) loadImage('media/home/', screenType, 'background-home-', setImage);
-
-    useEffect(() => {
-        const root = document.getElementById('root');
-        if (image) root.style.backgroundImage = `url(${image})`;
-    }, [image]);
-
     return (
         <section className="home-content">
             <article className="text-content">
