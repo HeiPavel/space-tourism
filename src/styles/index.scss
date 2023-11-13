@@ -2,13 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700&display=swap');
 
-:root {
-    font-size: 16px;
-    /*font-family: 'Barlow Condensed', sans-serif;
-    font-family: 'Barlow', sans-serif;
-    font-family: 'Bellefair', serif;*/
-}
-
 * {
     box-sizing: border-box;
 }
@@ -16,6 +9,9 @@
 html, body {
     margin: 0;
     padding: 0;
+    /*font-family: 'Barlow Condensed', sans-serif;
+    font-family: 'Barlow', sans-serif;
+    font-family: 'Bellefair', serif;*/
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -25,8 +21,11 @@ h1, h2, h3, h4, h5, h6, p {
 
 body {
     #root {
+        position: relative;
+        overflow-x: hidden;
         padding-top: 40px;
-        height: 100vh;
+        min-height: 100vh;
+        height: max-content;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -108,12 +107,25 @@ body {
         .mobile-menu {
             display: none;
             padding-right: 1.5rem;
-            .humburger {
+            #humburger {
                 height: 21px;
                 img {
                     width: auto;
                     height: 100%;
                 }
+            }
+        }
+        #close-button {
+            display: none;
+            position: absolute;
+            z-index: 5;
+            top: 2.125rem;
+            right: 1.7rem;
+            width: 19px;
+            height: 19px;
+            img {
+                width: 100%;
+                height: auto;
             }
         }
     }
@@ -215,20 +227,53 @@ body {
 
 @media only screen and (max-width: 480px) {
     body {
-        #root{
-            padding-top: 1.5rem;
+        #root {
+            padding-bottom: 2rem;
         }
         header {
-            padding-left: 1.5rem;
+            padding: 1.5rem 0 0 1.5rem;
             height: unset;
-            .desktop {
-                display: none;
-            }
             .logo-container {
                 height: 40px;
                 width: 40px;
             }
+            nav {
+                position: absolute;
+                padding: 7.375rem 0 0 2rem;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                height: 100%;
+                width: 254px;
+                gap: 2rem;
+                top: 0;
+                right: 0;
+                transform: translateX(254px);
+                transition: 0.2s ease;
+                a {
+                    font-size: 1rem;
+                    span {
+                        display: inline;
+                    }
+                }
+                a::after {
+                    display: none;
+                }
+            }
+            nav.show {
+                transform: translateX(0);
+            }
+            nav::before {
+                top: 0;
+                left: 0;
+            }
             .mobile-menu {
+                display: block;
+                #humburger.hide {
+                    display: none;
+                }
+            }
+            #close-button {
                 display: block;
             }
         }
