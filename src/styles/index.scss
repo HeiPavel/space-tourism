@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700&display=swap');
+@import "variables";
+@import "mixins";
 
 * {
     box-sizing: border-box;
@@ -9,9 +11,6 @@
 html, body {
     margin: 0;
     padding: 0;
-    /*font-family: 'Barlow Condensed', sans-serif;
-    font-family: 'Barlow', sans-serif;
-    font-family: 'Bellefair', serif;*/
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -25,37 +24,30 @@ body {
         overflow-x: hidden;
         padding-top: 40px;
         min-height: 100vh;
-        height: max-content;
         background-position: center;
         background-size: cover;
         background-repeat: no-repeat;
     }
     /*Header*/
     header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        @include flex(space-between, center);
         height: 96px;
         padding-left: 55px;
         .logo-container {
             border-radius: 50%;
-            background-color: rgb(255, 255, 255);
-            width: 48px;
-            height: 48px;
+            background-color: $white;
+            @include size(48px, 48px);
             img {
-                width: 100%;
-                height: auto;
+                @include size(100%, auto);
             }
         }
         nav {
             position: relative;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: stretch;
+            @include flex(center, stretch);
             gap: 10%;
             width: 60%;
-            font-family: 'Barlow Condensed', sans-serif;
+            font-family: $barlow-condensed;
             a {
                 position: relative;
                 display: inline-flex;
@@ -63,7 +55,7 @@ body {
                 gap: 12px;
                 text-decoration: none;
                 z-index: 5;
-                color: rgb(255, 255, 255);
+                color: $white;
                 letter-spacing: 1px;
                 font-weight: 300;
                 span {
@@ -73,32 +65,30 @@ body {
             a::after {
                 content: "";
                 position: absolute;
-                height: 3px;
-                width: 100%;
+                @include size(100%, 3px);
                 bottom: 0px;
                 z-index: 5;
                 transition: 0.2s ease;
             }
             a.active::after, a.active:hover:after {
-                background-color: rgb(255, 255, 255);
+                background-color: $white;
             }
             a:hover::after {
-                background-color: rgba(255, 255, 255, 0.5);
+                background-color: $white-05;
             }
         }
         nav::before {
             content: "";
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(255, 255, 255, 0.04);
+            @include size(100%, 100%);
+            background-color: $gray-transparent;
             backdrop-filter: blur(15px);
             z-index: 1;
         }
         nav::after {
             content: "";
             position: absolute;
-            border-top: 1px solid rgba(150, 150, 150, 0.5);
+            border-top: 1px solid $light-gray;
             width: 58%;
             right: 95%;
             top: 50%;
@@ -110,8 +100,7 @@ body {
             #humburger {
                 height: 21px;
                 img {
-                    width: auto;
-                    height: 100%;
+                    @include size(auto, 100%);
                 }
             }
         }
@@ -121,11 +110,9 @@ body {
             z-index: 5;
             top: 2.125rem;
             right: 1.7rem;
-            width: 19px;
-            height: 19px;
+            @include size(19px, 19px);
             img {
-                width: 100%;
-                height: auto;
+                @include size(100%, auto);
             }
         }
     }
@@ -133,45 +120,42 @@ body {
     /*Home section*/
     .home-content {
         margin-top: 251px;
-        display: flex;
-        justify-content: space-around;
-        align-items: flex-end;
+        @include flex(space-around, flex-end);
         .text-content {
             width: 450px;
-            color: rgb(210, 216, 249);
+            color: $light-blue;
             h5 {
-                font-family: 'Barlow Condensed', sans-serif;
+                font-family: $barlow-condensed;
                 font-size: 1.75rem;
                 font-weight: 400;
                 letter-spacing: 4.75px;
             }
             h1 {
                 margin: 1.5rem 0;
-                font-family: 'Bellefair', serif;
+                font-family: $bellefair;
                 font-size: 9.375rem;
                 font-weight: 400;
-                color: rgb(255, 255, 255);
+                color: $white;
             }
             p {
-                font-family: 'Barlow', sans-serif;
+                font-family: $barlow;
                 font-size: 1.125rem;
                 line-height: 1.8;
                 text-align: justify;
             }
         }
         .explore {
-            width: 274px;
-            height: 274px;
+            @include size(274px, 274px);
             border-radius: 50%;
             border: none;
-            font-family: 'Bellefair', serif;
+            font-family: $bellefair;
             font-size: 2rem;
             letter-spacing: 2px;
             cursor: pointer;
             transition: 0.2s ease;
         }
         .explore:hover {
-            box-shadow: 0 0 0 88px rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 0 88px $shadow-gray;
         }
     }
 }
@@ -197,8 +181,7 @@ body {
         }
         .home-content {
             margin-top: 106px;
-            flex-direction: column;
-            align-items: center;
+            @include flex(space-around, center, column);
             gap: 153px;
             .text-content {
                 text-align: center;
@@ -218,8 +201,7 @@ body {
                 }
             }
             .explore {
-                width: 242px;
-                height: 242px;
+                @include size(242px, 242px);
             }
         }
     }
@@ -234,17 +216,13 @@ body {
             padding: 1.5rem 0 0 1.5rem;
             height: unset;
             .logo-container {
-                height: 40px;
-                width: 40px;
+                @include size(40px, 40px);
             }
             nav {
                 position: absolute;
                 padding: 7.375rem 0 0 2rem;
-                flex-direction: column;
-                justify-content: flex-start;
-                align-items: flex-start;
-                height: 100%;
-                width: 254px;
+                @include flex(flex-start, flex-start, column);
+                @include size(254px, 100%);
                 gap: 2rem;
                 top: 0;
                 right: 0;
@@ -297,8 +275,7 @@ body {
                 }
             }
             .explore {
-                width: 150px;
-                height: 150px;
+                @include size(150px, 150px);
                 font-size: 1.25rem;
                 letter-spacing: 1.25px;
             }
