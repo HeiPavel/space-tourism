@@ -62,20 +62,6 @@ body {
                     font-weight: 700;
                 }
             }
-            a::after {
-                content: "";
-                position: absolute;
-                @include size(100%, 3px);
-                bottom: 0px;
-                z-index: 5;
-                transition: 0.2s ease;
-            }
-            a.active::after, a.active:hover:after {
-                background-color: $white;
-            }
-            a:hover::after {
-                background-color: $white-05;
-            }
         }
         nav::before {
             content: "";
@@ -114,6 +100,23 @@ body {
             img {
                 @include size(100%, auto);
             }
+        }
+    }
+    /*Shared nav underline*/
+    .navigation {
+        a::after {
+            content: "";
+            position: absolute;
+            @include size(100%, 3px);
+            bottom: 0px;
+            z-index: 5;
+            transition: 0.2s ease;
+        }
+        a.active::after, a.active:hover:after {
+            background-color: $white;
+        }
+        a:hover::after {
+            background-color: $white-05;
         }
     }
     /*Main*/
@@ -156,6 +159,50 @@ body {
         }
         .explore:hover {
             box-shadow: 0 0 0 88px $shadow-gray;
+        }
+    }
+    /*Section Destination*/
+    .destination {
+        margin-top: 61px;
+        h5 {
+            margin-left: 166px;
+            display: inline-flex;
+            gap: 1.75rem;
+            font-family: $barlow-condensed;
+            font-size: 1.75rem;
+            font-weight: 400;
+            letter-spacing: 4.72px;
+            color: $white;
+            span {
+                font-weight: 700;
+                color: $span-color;
+            }
+        }
+        .destination-card {
+            @include flex(center);
+            gap: 157px;
+            padding-top: 76px;
+            .object-image {
+                @include size(445px, 445px);
+                img {
+                    @include size(100%, auto);
+                }
+            }
+            .object-description {
+                nav {
+                    height: 34px;
+                    @include flex(normal, stretch);
+                    gap: 2.25rem;
+                    a {
+                        position: relative;
+                        display: inline-flex;
+                        text-decoration: none;
+                        color: $light-blue;
+                        letter-spacing: 2.7px;
+                        font-family: $barlow-condensed;
+                    }
+                }
+            }
         }
     }
 }

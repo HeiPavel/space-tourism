@@ -11,7 +11,7 @@ export const Root = () => {
     let baseUrl = pathname.split('/')[1];
     baseUrl = baseUrl ? baseUrl : 'home';
 
-    if (screenType) loadImage(baseUrl, screenType, `background-${baseUrl}-`, setImage, image);
+    if (screenType) loadImage(baseUrl, screenType, `background-${baseUrl}-`, setImage, image, 'jpg');
 
     useEffect(() => {
         const root = document.getElementById('root');

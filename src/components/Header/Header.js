@@ -10,7 +10,7 @@ export const Header = () => {
             <div className="logo-container">
                 <img src={logo} alt="logo" />
             </div>
-            <nav id="general-navigation-menu">
+            <nav id="general-navigation-menu" className="navigation">
                 <div id="close-button">
                     <img src={close} alt="close button" />
                 </div>
