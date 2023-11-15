@@ -1,25 +1,26 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import logo from '../../media/icons/logo.svg';
-import close from '../../media/icons/icon-close.svg';
+import humburger from '../../media/icons/icon-hamburger.svg';
 import { MobileMenu } from "../MobileMenu/MobileMenu";
+import { NavLinks } from "../NavLinks/NavLinks";
 
 export const Header = () => {
     return (
-        <header>
-            <div className="logo-container">
-                <img src={logo} alt="logo" />
-            </div>
-            <nav id="general-navigation-menu" className="navigation">
-                <div id="close-button">
-                    <img src={close} alt="close button" />
+        <>
+            <header>
+                <div className="logo-container">
+                    <img src={logo} alt="logo" />
                 </div>
-                <NavLink to="/"><span>00</span>HOME</NavLink>
-                <NavLink to="/destination"><span>01</span>DESTINATION</NavLink>
-                <NavLink to="/crew"><span>02</span>CREW</NavLink>
-                <NavLink to="/technology"><span>03</span>TECHNOLOGY</NavLink>
-            </nav>
+                <nav className="navigation blur desktop">
+                    <NavLinks />
+                </nav>
+                <div className="mobile-button">
+                    <div id="humburger">
+                        <img src={humburger} alt="button" />
+                    </div>
+                </div>
+            </header>
             <MobileMenu />
-        </header>
+        </>
     );
 }

@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700&display=swap');
 @import "variables";
 @import "mixins";
+@import "placeholders";
 
 * {
     box-sizing: border-box;
@@ -49,27 +50,9 @@ body {
             width: 60%;
             font-family: $barlow-condensed;
             a {
-                position: relative;
-                display: inline-flex;
-                align-items: center;
-                gap: 12px;
-                text-decoration: none;
                 z-index: 5;
-                color: $white;
-                letter-spacing: 1px;
-                font-weight: 300;
-                span {
-                    font-weight: 700;
-                }
+                @extend %link-styles;
             }
-        }
-        nav::before {
-            content: "";
-            position: absolute;
-            @include size(100%, 100%);
-            background-color: $gray-transparent;
-            backdrop-filter: blur(15px);
-            z-index: 1;
         }
         nav::after {
             content: "";
@@ -80,7 +63,7 @@ body {
             top: 50%;
             z-index: 5;
         }
-        .mobile-menu {
+        .mobile-button {
             display: none;
             padding-right: 1.5rem;
             #humburger {
@@ -89,6 +72,14 @@ body {
                     @include size(auto, 100%);
                 }
             }
+        }
+    }
+    #mobile-menu {
+        display: none;
+        a {
+            font-family: $barlow-condensed;
+            z-index: 10;
+            @extend %link-styles;
         }
         #close-button {
             display: none;
@@ -102,7 +93,7 @@ body {
             }
         }
     }
-    /*Shared nav underline*/
+    /*Shared nav underline and blur*/
     .navigation {
         a::after {
             content: "";
@@ -118,6 +109,14 @@ body {
         a:hover::after {
             background-color: $white-05;
         }
+    }
+    .blur::before {
+        content: "";
+        position: absolute;
+        @include size(100%, 100%);
+        background-color: $gray-transparent;
+        backdrop-filter: blur(15px);
+        z-index: 1;
     }
     /*Main*/
     /*Home section*/
@@ -265,42 +264,38 @@ body {
             .logo-container {
                 @include size(40px, 40px);
             }
-            nav {
-                position: absolute;
-                padding: 7.375rem 0 0 2rem;
-                @include flex(flex-start, flex-start, column);
-                @include size(254px, 100%);
-                gap: 2rem;
-                top: 0;
-                right: 0;
-                transform: translateX(254px);
-                transition: 0.2s ease;
-                a {
-                    font-size: 1rem;
-                    span {
-                        display: inline;
-                    }
-                }
-                a::after {
-                    display: none;
-                }
+            .desktop {
+                display: none;
             }
-            nav.show {
-                transform: translateX(0);
-            }
-            nav::before {
-                top: 0;
-                left: 0;
-            }
-            .mobile-menu {
+            .mobile-button {
                 display: block;
                 #humburger.hide {
                     display: none;
                 }
             }
+        }
+        #mobile-menu {
+            display: block;
+            position: absolute;
+            z-index: 7;
+            padding: 7.375rem 0 0 2rem;
+            @include flex(flex-start, flex-start, column);
+            @include size(254px, 100%);
+            gap: 2rem;
+            top: 0;
+            right: 0;
+            transform: translateX(254px);
+            transition: 0.2s ease;
             #close-button {
                 display: block;
             }
+        }
+        #mobile-menu.show {
+            transform: translateX(0);
+        }
+        #mobile-menu::before {
+            top: 0;
+            left: 0;
         }
         .home-content {
             margin-top: 48px;

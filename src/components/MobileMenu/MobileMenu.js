@@ -1,12 +1,14 @@
 import React, {useEffect} from "react";
-import humburger from '../../media/icons/icon-hamburger.svg';
+import { NavLinks } from "../NavLinks/NavLinks";
+import close from "../../media/icons/icon-close.svg";
 
 export const MobileMenu = () => {
 
     useEffect(() => {
         const menuButton = document.getElementById('humburger');
         const closeButton = document.getElementById('close-button');
-        const menu = document.getElementById('general-navigation-menu');
+        const menu = document.getElementById('mobile-menu');
+        const links = menu.querySelectorAll('a');
 
         const handleClick = () => {
             menu.classList.toggle('show');
@@ -15,18 +17,21 @@ export const MobileMenu = () => {
 
         menuButton.addEventListener('click', handleClick);
         closeButton.addEventListener('click', handleClick);
+        links.forEach(link => link.addEventListener('click', handleClick));
 
         return () => {
             menuButton.removeEventListener('click', handleClick);
             closeButton.removeEventListener('click', handleClick);
+            links.forEach(link => link.removeEventListener('click', handleClick));
         }
     }, []);
 
     return (
-        <div className="mobile-menu">
-            <div id="humburger">
-                <img src={humburger} alt="button" />
+        <nav id="mobile-menu" className="blur">
+            <div id="close-button">
+                <img src={close} alt="close button" />
             </div>
-        </div>
+            <NavLinks />
+        </nav>
     );
 }
