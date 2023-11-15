@@ -162,7 +162,7 @@ body {
     }
     /*Section Destination*/
     .destination {
-        margin-top: 61px;
+        margin-top: 76px;
         h5 {
             margin-left: 166px;
             display: inline-flex;
@@ -180,7 +180,7 @@ body {
         .destination-card {
             @include flex(center);
             gap: 157px;
-            padding-top: 76px;
+            padding-top: 97px;
             .object-image {
                 @include size(445px, 445px);
                 img {
@@ -188,6 +188,7 @@ body {
                 }
             }
             .object-description {
+                width: 445px;
                 nav {
                     height: 34px;
                     @include flex(normal, stretch);
@@ -199,6 +200,43 @@ body {
                         color: $light-blue;
                         letter-spacing: 2.7px;
                         font-family: $barlow-condensed;
+                    }
+                }
+                h2 {
+                    margin-top: 37px;
+                    font-family: $bellefair;
+                    font-size: 6.25rem;
+                    font-weight: 400;
+                    color: $white;
+                    text-transform: uppercase;
+                }
+                .description {
+                    padding: 14px 0 52px 0;
+                    font-family: $barlow;
+                    font-size: 1.125rem;
+                    font-weight: 400;
+                    color: $light-blue;
+                    line-height: 1.8;
+                    border-bottom: 1px solid $light-gray;
+                }
+                .travel-statistic {
+                    padding-top: 28px;
+                    display: flex;
+                    .statistic-container {
+                        flex-grow: 1;
+                        .label {
+                            font-family: $barlow-condensed;
+                            font-size: 0.875rem;
+                            color: $light-blue;
+                            letter-spacing: 2.36px;
+                        }
+                        .info {
+                            padding-top: 12px;
+                            font-family: $bellefair;
+                            font-size: 1.75rem;
+                            color: $white;
+                            text-transform: uppercase;
+                        }
                     }
                 }
             }
@@ -248,6 +286,39 @@ body {
             }
             .explore {
                 @include size(242px, 242px);
+            }
+        }
+        .destination {
+            margin-top: 40px;
+            h5 {
+                margin-left: 38px;
+                gap: 1.1875rem;
+                font-size: 1.25rem;
+                letter-spacing: 3.38px;
+            }
+            .destination-card {
+                padding-top: 60px;
+                @include flex(normal, center, column);
+                gap: 53px;
+                .object-image {
+                    @include size(300px, 300px);
+                }
+                .object-description {
+                    width: 573px;
+                    text-align: center;
+                    nav {
+                        justify-content: center;
+                    }
+                    h2 {
+                        margin-top: 2rem;
+                        font-size: 5rem;
+                    }
+                    .description {
+                        padding: 8px 0 49px 0;
+                        font-size: 1rem;
+                        line-height: 1.75;
+                    }
+                }
             }
         }
     }

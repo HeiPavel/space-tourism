@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { useParams, NavLink, Navigate } from "react-router-dom";
+import { useParams, NavLink, Navigate, Outlet } from "react-router-dom";
 import { loadImage } from "../../until/loadImage";
 
 export const Destination = () => {
@@ -28,6 +28,7 @@ export const Destination = () => {
                         <NavLink to='/destination/europa'>EUROPA</NavLink>
                         <NavLink to='/destination/titan'>TITAN</NavLink>
                     </nav>
+                    <Outlet />
                 </div>
             </article>
         </section>
