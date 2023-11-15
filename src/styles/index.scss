@@ -408,6 +408,7 @@ body {
             }
         }
         .destination {
+            min-height: 770px;
             .destination-card {
                 padding-top: 2rem;
                 gap: 1.625rem;
@@ -435,7 +436,7 @@ body {
                         line-height: 1.67;
                     }
                     .travel-statistic {
-                        padding: 2rem 0 2.25rem 0;
+                        padding-top: 2rem;
                         @include flex(normal, center, column);
                         gap: 2rem;
                     }
