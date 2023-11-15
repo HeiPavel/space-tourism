@@ -16,7 +16,7 @@ export const Destination = () => {
     
     return (
         <section className="destination">
-            <h5><span>01</span>PICK YOUR DESTINATION</h5>
+            <h5 className="page-title"><span>01</span>PICK YOUR DESTINATION</h5>
             <article className="destination-card">
                 <div className="object-image">
                     <img src={image} alt="object" />

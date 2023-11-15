@@ -119,6 +119,23 @@ body {
         z-index: 1;
     }
     /*Main*/
+    section {
+        margin-top: 76px;
+        .page-title {
+            margin-left: 166px;
+            display: flex;
+            gap: 1.75rem;
+            font-family: $barlow-condensed;
+            font-size: 1.75rem;
+            font-weight: 400;
+            letter-spacing: 4.72px;
+            color: $white;
+            span {
+                font-weight: 700;
+                color: $span-color;
+            }
+        }
+    }
     /*Home section*/
     .home-content {
         margin-top: 251px;
@@ -162,21 +179,6 @@ body {
     }
     /*Section Destination*/
     .destination {
-        margin-top: 76px;
-        h5 {
-            margin-left: 166px;
-            display: inline-flex;
-            gap: 1.75rem;
-            font-family: $barlow-condensed;
-            font-size: 1.75rem;
-            font-weight: 400;
-            letter-spacing: 4.72px;
-            color: $white;
-            span {
-                font-weight: 700;
-                color: $span-color;
-            }
-        }
         .destination-card {
             @include flex(center);
             gap: 157px;
@@ -263,6 +265,15 @@ body {
                 display: none;
             }
         }
+        section {
+            margin-top: 40px;
+            .page-title {
+                margin-left: 38px;
+                gap: 1.1875rem;
+                font-size: 1.25rem;
+                letter-spacing: 3.38px;
+            }
+        }
         .home-content {
             margin-top: 106px;
             @include flex(space-around, center, column);
@@ -289,13 +300,6 @@ body {
             }
         }
         .destination {
-            margin-top: 40px;
-            h5 {
-                margin-left: 38px;
-                gap: 1.1875rem;
-                font-size: 1.25rem;
-                letter-spacing: 3.38px;
-            }
             .destination-card {
                 padding-top: 60px;
                 @include flex(normal, center, column);
@@ -368,6 +372,16 @@ body {
             top: 0;
             left: 0;
         }
+        section {
+            margin-top: 24px;
+            .page-title {
+                margin: 0;
+                justify-content: center;
+                gap: 1.125rem;
+                font-size: 1rem;
+                letter-spacing: 2.7px;
+            }
+        }
         .home-content {
             margin-top: 48px;
             gap: 80px;
@@ -391,6 +405,41 @@ body {
                 @include size(150px, 150px);
                 font-size: 1.25rem;
                 letter-spacing: 1.25px;
+            }
+        }
+        .destination {
+            .destination-card {
+                padding-top: 2rem;
+                gap: 1.625rem;
+                .object-image {
+                    @include size(170px, 170px);
+                }
+                .object-description {
+                    width: 100%;
+                    nav {
+                        height: 1.75rem;
+                        gap: 1.6875rem;
+                        a {
+                            font-size: 0.875rem;
+                            letter-spacing: 2.36px;
+                        }
+                    }
+                    h2 {
+                        margin-top: 1.25rem;
+                        font-size: 3.5rem;
+                    }
+                    .description {
+                        padding: 0 0 2rem 0;
+                        margin: 0 1.5rem;
+                        font-size: 0.9375rem;
+                        line-height: 1.67;
+                    }
+                    .travel-statistic {
+                        padding: 2rem 0 2.25rem 0;
+                        @include flex(normal, center, column);
+                        gap: 2rem;
+                    }
+                }
             }
         }
     }
