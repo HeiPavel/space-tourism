@@ -12,6 +12,7 @@
 html, body {
     margin: 0;
     padding: 0;
+    min-height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -21,6 +22,7 @@ h1, h2, h3, h4, h5, h6, p {
 
 body {
     #root {
+        @include flex(normal, normal, column);
         position: relative;
         overflow-x: hidden;
         padding-top: 40px;
@@ -119,10 +121,14 @@ body {
         z-index: 1;
     }
     /*Main*/
+    main {
+        display: flex;
+        flex-grow: 1;
+    }
     section {
+        flex-grow: 1;
         margin-top: 76px;
         .page-title {
-            margin-left: 166px;
             display: flex;
             gap: 1.75rem;
             font-family: $barlow-condensed;
@@ -139,7 +145,9 @@ body {
     /*Home section*/
     .home-content {
         margin-top: 251px;
-        @include flex(space-around, flex-end);
+        .section-content {
+            @include flex(space-around, flex-end);
+        }
         .text-content {
             width: 450px;
             color: $light-blue;
@@ -171,18 +179,17 @@ body {
             font-size: 2rem;
             letter-spacing: 2px;
             cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
             transition: 0.2s ease;
-        }
-        .explore:hover {
-            box-shadow: 0 0 0 88px $shadow-gray;
         }
     }
     /*Section Destination*/
     .destination {
+        @include flex(center);
         .destination-card {
             @include flex(center);
             gap: 157px;
-            padding-top: 97px;
+            padding: 97px 0 0 4rem;
             .object-image {
                 @include size(445px, 445px);
                 img {
@@ -216,7 +223,6 @@ body {
                     padding: 14px 0 52px 0;
                     font-family: $barlow;
                     font-size: 1.125rem;
-                    font-weight: 400;
                     color: $light-blue;
                     line-height: 1.8;
                     border-bottom: 1px solid $light-gray;
@@ -240,6 +246,69 @@ body {
                             text-transform: uppercase;
                         }
                     }
+                }
+            }
+        }
+    }
+    /*Section Crew*/ 
+    .crew {
+        @include flex(center);
+        .section-content {
+            flex: 0 1 1125px;
+            position: relative;
+            @include flex(normal, normal, column);
+            .page-title {
+                position: absolute; 
+            }
+        }
+        .crew-card {
+            flex-grow: 1;
+            display: grid;
+            grid-template-rows: 1fr;
+            grid-template-columns: auto auto;
+            .crew-description {
+                padding-top: 154px;
+                .crew-role {
+                    text-transform: uppercase;
+                    font-family: $bellefair;
+                    font-size: 2rem;
+                    color: $white-05;
+                }
+                .crew-name {
+                    padding-top: 15px;
+                    font-family: $bellefair;
+                    font-size: 3.5rem;
+                    text-transform: uppercase;
+                    color: $white;
+                }
+                .crew-bio {
+                    padding-top: 27px;
+                    font-family: $barlow;
+                    font-size: 1.125rem;
+                    color: $light-blue;
+                    line-height: 1.8;
+                    max-width: 444px;
+                }
+                nav {
+                    margin-top: 120px;
+                    display: flex;
+                    gap: 1.5rem;
+                    a {
+                        @include size(15px, 15px);
+                        border-radius: 50%;
+                        background-color: $crew-link-color;
+                    }
+                    a.active {
+                        background-color: $white;
+                    }
+                }
+            }
+            .person-image {
+                justify-self: end;
+                align-self: end;
+                img {
+                    vertical-align: middle;
+                    @include size(auto, 100%);
                 }
             }
         }
@@ -276,8 +345,10 @@ body {
         }
         .home-content {
             margin-top: 106px;
-            @include flex(space-around, center, column);
-            gap: 153px;
+            .section-content {
+                @include flex(space-around, center, column);
+                gap: 153px;
+            }
             .text-content {
                 text-align: center;
                 h5 {
@@ -301,7 +372,7 @@ body {
         }
         .destination {
             .destination-card {
-                padding-top: 60px;
+                padding: 60px 0 0 0;
                 @include flex(normal, center, column);
                 gap: 53px;
                 .object-image {
@@ -350,7 +421,6 @@ body {
             }
         }
         #mobile-menu {
-            display: block;
             position: absolute;
             z-index: 7;
             padding: 7.375rem 0 0 2rem;
@@ -384,7 +454,10 @@ body {
         }
         .home-content {
             margin-top: 48px;
-            gap: 80px;
+            .section-content {
+                justify-content: normal;
+                gap: 80px;
+            }
             .text-content {
                 padding: 0 1.5rem;
                 width: 100%;
@@ -443,5 +516,11 @@ body {
                 }
             }
         }
+    }
+}
+
+@media (hover: hover) {
+    .explore:hover {
+        box-shadow: 0 0 0 88px $shadow-gray;
     }
 }
