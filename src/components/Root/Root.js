@@ -20,9 +20,9 @@ export const Root = () => {
         let timeoutId = false;
         const checkScreenWidth = () => {
             const screenWidth = window.innerWidth;
-            if (screenWidth <= 820 && screenWidth > 480 && screenType !== 'tablet') setScreenType('tablet');
+            if (screenWidth <= 1024 && screenWidth > 480 && screenType !== 'tablet') setScreenType('tablet');
             if (screenWidth <= 480 && screenType !== 'mobile') setScreenType('mobile');
-            if (screenWidth > 820 && screenType !== 'desktop') setScreenType('desktop');
+            if (screenWidth > 1024 && screenType !== 'desktop') setScreenType('desktop');
         };
 
         if (!screenType) checkScreenWidth();
