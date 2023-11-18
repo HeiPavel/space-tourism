@@ -336,6 +336,9 @@ body {
         }
         section {
             margin-top: 40px;
+            .section-content {
+                flex-grow: 1;
+            }
             .page-title {
                 margin-left: 38px;
                 gap: 1.1875rem;
@@ -393,6 +396,50 @@ body {
                         font-size: 1rem;
                         line-height: 1.75;
                     }
+                }
+            }
+        }
+        .crew {
+            .section-content {
+                flex: 1 0 unset;
+                .page-title {
+                    position: unset;
+                }
+            }
+            .crew-card {
+                grid-template-columns: auto;
+                grid-template-rows: auto auto;
+                justify-content: center;
+                .crew-description {
+                    padding-top: 60px;
+                    @include flex(normal, center, column);
+                    text-align: center;
+                    .crew-role {
+                        font-size: 1.5rem;
+                    }
+                    .crew-name {
+                        padding-top: 0.5rem;
+                        font-size: 2.5rem;
+                    }
+                    .crew-bio {
+                        padding-top: 1rem;
+                        font-size: 1rem;
+                        line-height: 1.75;
+                        max-width: 600px;
+                        text-wrap: balance;
+                    }
+                    nav {
+                        margin-top: 40px;
+                        gap: 1rem;
+                        a {
+                            @include size(10px, 10px);
+                        }
+                    }
+                }
+                .person-image {
+                    height: 532px;
+                    justify-self: unset;
+                    @include flex(center);
                 }
             }
         }
