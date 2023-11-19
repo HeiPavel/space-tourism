@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import { useParams, NavLink, Navigate, Outlet } from "react-router-dom";
 import { loadImage } from "../../until/loadImage";
+import { navigation } from "../../until/data";
 
 export const Destination = () => {
     const [image, setImage] = useState(null);
     const {object} = useParams();
+    const {destination} = navigation;
 
     if (!object) return <Navigate to='moon'/>
 
@@ -20,10 +22,7 @@ export const Destination = () => {
                     </div>
                     <div className="object-description">
                         <nav className="navigation">
-                            <NavLink to='/destination/moon'>MOON</NavLink>
-                            <NavLink to='/destination/mars'>MARS</NavLink>
-                            <NavLink to='/destination/europa'>EUROPA</NavLink>
-                            <NavLink to='/destination/titan'>TITAN</NavLink>
+                            {destination.map((link, index) => (<NavLink key={index} to={link.path}>{link.content}</NavLink>))}
                         </nav>
                         <Outlet />
                     </div>

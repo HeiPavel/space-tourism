@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import { useParams, NavLink, Outlet, Navigate } from "react-router-dom";
 import { loadImage } from "../../until/loadImage";
+import { navigation } from "../../until/data";
 
 export const Crew = () => {
     const [image, setImage] = useState(null);
     const {person} = useParams();
+    const {crew} = navigation;
 
     if (!person) return <Navigate to='douglas-hurley'/>
 
@@ -18,10 +20,7 @@ export const Crew = () => {
                     <div className="crew-description">
                         <Outlet />
                         <nav>
-                            <NavLink to='/crew/douglas-hurley' />
-                            <NavLink to='/crew/mark-shuttleworth' />
-                            <NavLink to='/crew/victor-glover' />
-                            <NavLink to='/crew/anousheh-ansari' />
+                            {crew.map((link, index) => (<NavLink key={index} to={link.path} />))}
                         </nav>
                     </div>
                     <div className="person-image">

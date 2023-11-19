@@ -6,6 +6,8 @@ import { Destination } from "../Destination/Destination";
 import { Planet } from "../Planet/Planet";
 import { Crew } from "../Crew/Crew";
 import { Person } from "../Person/Person";
+import { Technology } from "../Technology/Technology";
+import { Tool } from "../Tool/Tool";
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Root/>}>
@@ -15,6 +17,9 @@ const router = createBrowserRouter(createRoutesFromElements(
     </Route>
     <Route path="crew" element={<Crew/>}>
       <Route path=":person" element={<Person/>} />
+    </Route>
+    <Route path="technology" element={<Technology/>}>
+      <Route path=":tool" element={<Tool/>} />
     </Route>
   </Route>
 ));

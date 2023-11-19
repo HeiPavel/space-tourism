@@ -1,13 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { navigation } from "../../until/data";
 
 export const NavLinks = () => {
+    const {main} = navigation;
+
     return (
         <>
-            <NavLink to="/"><span>00</span>HOME</NavLink>
-            <NavLink to="/destination"><span>01</span>DESTINATION</NavLink>
-            <NavLink to="/crew"><span>02</span>CREW</NavLink>
-            <NavLink to="/technology"><span>03</span>TECHNOLOGY</NavLink>
+            {main.map((link, index) => (<NavLink key={index} to={`/${link.path}`}><span>{`0${index}`}</span>{link.path ? link.path.toUpperCase() : 'HOME'}</NavLink>))}
         </>
     );
 }

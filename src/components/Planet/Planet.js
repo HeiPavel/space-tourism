@@ -9,7 +9,7 @@ export const Planet = () => {
     return (
         <>
             <h2>{object}</h2>
-            <p className="description">{destinations[object].description}</p>
+            <p className="description planet-description">{destinations[object].description}</p>
             <div className="travel-statistic">
                 <div className="statistic-container">
                     <p className="label">AVG. DISTANCE</p>

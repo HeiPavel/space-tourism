@@ -20,17 +20,16 @@ h1, h2, h3, h4, h5, h6, p {
     padding: 0;
 }
 
-body {
-    #root {
-        @include flex(normal, normal, column);
-        position: relative;
-        overflow-x: hidden;
-        padding-top: 40px;
-        min-height: 100vh;
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
+
+#root {
+    @include flex(normal, normal, column);
+    position: relative;
+    overflow-x: hidden;
+    padding-top: 40px;
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     /*Header*/
     header {
         @include flex(space-between, center);
@@ -120,6 +119,13 @@ body {
         backdrop-filter: blur(15px);
         z-index: 1;
     }
+    /*Shared card description*/
+    .description {
+        font-family: $barlow;
+        font-size: 1.125rem;
+        color: $light-blue;
+        line-height: 1.8;
+    }
     /*Main*/
     main {
         display: flex;
@@ -186,9 +192,13 @@ body {
     /*Section Destination*/
     .destination {
         @include flex(center);
+        .section-content {
+            flex: 0 1 1111px;
+            @include flex(normal,normal, column);
+        }
         .destination-card {
-            @include flex(center);
-            gap: 157px;
+            flex-grow: 1;
+            @include flex(space-between);
             padding: 97px 0 0 4rem;
             .object-image {
                 @include size(445px, 445px);
@@ -219,12 +229,8 @@ body {
                     color: $white;
                     text-transform: uppercase;
                 }
-                .description {
+                .planet-description {
                     padding: 14px 0 52px 0;
-                    font-family: $barlow;
-                    font-size: 1.125rem;
-                    color: $light-blue;
-                    line-height: 1.8;
                     border-bottom: 1px solid $light-gray;
                 }
                 .travel-statistic {
@@ -283,10 +289,6 @@ body {
                 }
                 .crew-bio {
                     padding-top: 27px;
-                    font-family: $barlow;
-                    font-size: 1.125rem;
-                    color: $light-blue;
-                    line-height: 1.8;
                     max-width: 444px;
                 }
                 nav {
@@ -313,13 +315,70 @@ body {
             }
         }
     }
+    .technology {
+        @include flex(flex-end);
+        .section-content {
+            flex: 0 1 1274px;
+        }
+        .technology-card {
+            @include flex(space-between);
+            .technology-text-content {
+                margin-top: 137px;
+                display: flex;
+                gap: 79px;
+                nav {
+                    @include flex(normal, normal, column);
+                    gap: 2rem;
+                    a {
+                        @include flex(center, center);
+                        @include size(80px, 80px);
+                        text-decoration: none;
+                        border-radius: 50%;
+                        border: 1px solid $span-color;
+                        font-family: $bellefair;
+                        font-size: 2rem;
+                        color: $white;
+                    }
+                    a.active {
+                        background-color: $white;
+                        color: $active-link-color;
+                    }
+                }
+                .tool-description {
+                    .terminology {
+                        font-family: $barlow-condensed;
+                        font-size: 1rem;
+                        letter-spacing: 2.7px;
+                        color: $light-blue;
+                    }
+                    h3 {
+                        padding-top: 11px;
+                        text-transform: uppercase;
+                        font-family: $bellefair;
+                        font-size: 3.5rem;
+                        font-weight: 400;
+                        color: $white;
+                    }
+                    .tool-description {
+                        padding-top: 17px;
+                        max-width: 444px;
+                    }
+                }
+            }
+            .tool-image {
+                flex: 0 1 515px;
+                img {
+                    vertical-align: middle;
+                    @include size(100%, auto);
+                }
+            }
+        }
+    }
 }
 
 @media only screen and (max-width: 1024px) {
-    body {
-        #root{
-            padding-top: 0;
-        }
+    #root{
+        padding-top: 0;
         header {
             padding-left: 39px;
             nav {
@@ -345,6 +404,10 @@ body {
                 font-size: 1.25rem;
                 letter-spacing: 3.38px;
             }
+        }
+        .description {
+            font-size: 1rem;
+            line-height: 1.75;
         }
         .home-content {
             margin-top: 106px;
@@ -391,10 +454,8 @@ body {
                         margin-top: 2rem;
                         font-size: 5rem;
                     }
-                    .description {
+                    .planet-description {
                         padding: 8px 0 49px 0;
-                        font-size: 1rem;
-                        line-height: 1.75;
                     }
                 }
             }
@@ -423,8 +484,6 @@ body {
                     }
                     .crew-bio {
                         padding-top: 1rem;
-                        font-size: 1rem;
-                        line-height: 1.75;
                         max-width: 600px;
                         text-wrap: balance;
                     }
@@ -448,10 +507,7 @@ body {
 }
 
 @media only screen and (max-width: 480px) {
-    body {
-        #root {
-            padding-bottom: 2rem;
-        }
+    #root {
         header {
             padding: 1.5rem 0 0 1.5rem;
             height: unset;
@@ -500,9 +556,14 @@ body {
                 letter-spacing: 2.7px;
             }
         }
+        .description {
+            font-size: 0.9375rem;
+            line-height: 1.67;
+        }
         .home-content {
             margin-top: 48px;
             .section-content {
+                min-height: 555px;
                 justify-content: normal;
                 gap: 80px;
             }
@@ -550,11 +611,9 @@ body {
                         margin-top: 1.25rem;
                         font-size: 3.5rem;
                     }
-                    .description {
+                    .planet-description {
                         padding: 0 0 2rem 0;
                         margin: 0 1.5rem;
-                        font-size: 0.9375rem;
-                        line-height: 1.67;
                     }
                     .travel-statistic {
                         padding-top: 2rem;
@@ -565,6 +624,9 @@ body {
             }
         }
         .crew {
+            .section-content {
+                min-height: 622px;
+            }
             .crew-card {
                 padding: 0 1.5rem;
                 @include flex(flex-end, center, column-reverse);
@@ -586,7 +648,6 @@ body {
                         font-size: 1.5rem;
                     }
                     .crew-bio {
-                        font-size: 0.9375rem;
                         line-height: 1.7;
                         text-wrap: unset;
                     }

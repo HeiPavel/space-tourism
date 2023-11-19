@@ -10,7 +10,7 @@ export const Person = () => {
         <div className="person-info">
             <p className="crew-role">{crew[person].role}</p>
             <p className="crew-name">{crew[person].name}</p>
-            <p className="crew-bio">{crew[person].bio}</p>
+            <p className="description crew-bio">{crew[person].bio}</p>
         </div>
     );
 }

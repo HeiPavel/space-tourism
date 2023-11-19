@@ -42,5 +42,44 @@ export const data = {
             role: "Flight Engineer",
             bio: "Anousheh Ansari is an Iranian American engineer and co-founder of Prodea Systems. Ansari was the fourth self-funded space tourist, the first self-funded woman to fly to the ISS, and the first Iranian in space."
         }
+    }, technology: {
+        'launch-vehicle': {
+            name: "Launch vehicle",
+            description: "A launch vehicle or carrier rocket is a rocket-propelled vehicle used to carry a payload from Earth's surface to space, usually to Earth orbit or beyond. Our WEB-X carrier rocket is the most powerful in operation. Standing 150 metres tall, it's quite an awe-inspiring sight on the launch pad!"
+        },
+        'spaceport': {
+            name: "Spaceport",
+            description: "A spaceport or cosmodrome is a site for launching (or receiving) spacecraft, by analogy to the seaport for ships or airport for aircraft. Based in the famous Cape Canaveral, our spaceport is ideally situated to take advantage of the Earth’s rotation for launch."
+        },
+        'space-capsule': {
+            name: "Space capsule",
+            description: "A space capsule is an often-crewed spacecraft that uses a blunt-body reentry capsule to reenter the Earth's atmosphere without wings. Our capsule is where you'll spend your time during the flight. It includes a space gym, cinema, and plenty of other activities to keep you entertained."
+        }
     }
+};
+
+export const navigation = {
+    main: [
+        {path: ''},
+        {path: 'destination'},
+        {path: 'crew'},
+        {path: 'technology'}
+    ],
+    destination: [
+        {path: '/destination/moon', content: 'MOON'}, 
+        {path: '/destination/mars', content: 'MARS'},
+        {path: '/destination/europa', content: 'EUROPA'},
+        {path: '/destination/titan', content: 'TITAN'}
+    ],
+    crew: [
+        {path: '/crew/douglas-hurley'},
+        {path: '/crew/mark-shuttleworth'},
+        {path: '/crew/victor-glover'},
+        {path: '/crew/anousheh-ansari'}
+    ],
+    technology: [
+        {path: '/technology/launch-vehicle'},
+        {path: '/technology/spaceport'},
+        {path: '/technology/space-capsule'}
+    ]
 }
