@@ -267,8 +267,9 @@ h1, h2, h3, h4, h5, h6, p {
                         @include size(15px, 15px);
                         border-radius: 50%;
                         background-color: $crew-link-color;
+                        transition: 0.2s ease;
                     }
-                    a.active {
+                    a.active, a.active:hover {
                         background-color: $white;
                     }
                 }
@@ -304,10 +305,12 @@ h1, h2, h3, h4, h5, h6, p {
                         border-radius: 50%;
                         border: 1px solid $span-color;
                         @include font($bellefair, 2rem, $white);
+                        transition: 0.2s ease;
                     }
                     a.active {
                         background-color: $white;
                         color: $active-link-color;
+                        border: none;
                     }
                 }
                 .tool-text-content {
@@ -690,5 +693,30 @@ h1, h2, h3, h4, h5, h6, p {
 @media (hover: hover) {
     .explore:hover {
         box-shadow: 0 0 0 88px $shadow-gray;
+    }
+
+    #root {
+        .crew {
+            .crew-card {
+                .crew-description {
+                    nav {
+                        a:hover {
+                            background-color: $white-05;
+                        }
+                    }
+                }
+            }
+        }
+        .technology {
+            .technology-card {
+                .technology-text-content {
+                    nav {
+                        a:hover {
+                            border-color: $white;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
