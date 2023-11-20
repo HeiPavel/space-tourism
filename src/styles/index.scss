@@ -121,10 +121,7 @@ h1, h2, h3, h4, h5, h6, p {
     }
     /*Shared card description*/
     .description {
-        font-family: $barlow;
-        font-size: 1.125rem;
-        color: $light-blue;
-        line-height: 1.8;
+        @include font($barlow, 1.125rem, $light-blue, 400, 1.8);
     }
     /*Main*/
     main {
@@ -137,11 +134,7 @@ h1, h2, h3, h4, h5, h6, p {
         .page-title {
             display: flex;
             gap: 1.75rem;
-            font-family: $barlow-condensed;
-            font-size: 1.75rem;
-            font-weight: 400;
-            letter-spacing: 4.72px;
-            color: $white;
+            @include font($barlow-condensed, 1.75rem, $white, 400, normal, 4.72px);
             span {
                 font-weight: 700;
                 color: $span-color;
@@ -156,24 +149,15 @@ h1, h2, h3, h4, h5, h6, p {
         }
         .text-content {
             width: 450px;
-            color: $light-blue;
             h5 {
-                font-family: $barlow-condensed;
-                font-size: 1.75rem;
-                font-weight: 400;
-                letter-spacing: 4.75px;
+                @include font($barlow-condensed, 1.75rem, $light-blue, 400, normal, 4.75px);
             }
             h1 {
                 margin: 1.5rem 0;
-                font-family: $bellefair;
-                font-size: 9.375rem;
-                font-weight: 400;
-                color: $white;
+                @include font($bellefair, 9.375rem, $white, 400);
             }
             p {
-                font-family: $barlow;
-                font-size: 1.125rem;
-                line-height: 1.8;
+                @include font($barlow, 1.125rem, $light-blue, 400, 1.8);
                 text-align: justify;
             }
         }
@@ -181,9 +165,7 @@ h1, h2, h3, h4, h5, h6, p {
             @include size(274px, 274px);
             border-radius: 50%;
             border: none;
-            font-family: $bellefair;
-            font-size: 2rem;
-            letter-spacing: 2px;
+            @include font($bellefair, 2rem, $active-link-color, 400, normal, 2px);
             cursor: pointer;
             -webkit-tap-highlight-color: transparent;
             transition: 0.2s ease;
@@ -216,17 +198,12 @@ h1, h2, h3, h4, h5, h6, p {
                         position: relative;
                         display: inline-flex;
                         text-decoration: none;
-                        color: $light-blue;
-                        letter-spacing: 2.7px;
-                        font-family: $barlow-condensed;
+                        @include font($barlow-condensed, 1rem, $light-blue, 400, normal, 2.7px);
                     }
                 }
                 h2 {
                     margin-top: 37px;
-                    font-family: $bellefair;
-                    font-size: 6.25rem;
-                    font-weight: 400;
-                    color: $white;
+                    @include font($bellefair, 6.25rem, $white, 400);
                     text-transform: uppercase;
                 }
                 .planet-description {
@@ -239,16 +216,11 @@ h1, h2, h3, h4, h5, h6, p {
                     .statistic-container {
                         flex-grow: 1;
                         .label {
-                            font-family: $barlow-condensed;
-                            font-size: 0.875rem;
-                            color: $light-blue;
-                            letter-spacing: 2.36px;
+                            @include font($barlow-condensed, 0.875rem, $light-blue, 400, normal, 2.36px);
                         }
                         .info {
                             padding-top: 12px;
-                            font-family: $bellefair;
-                            font-size: 1.75rem;
-                            color: $white;
+                            @include font($bellefair, 1.75rem, $white);
                             text-transform: uppercase;
                         }
                     }
@@ -276,16 +248,12 @@ h1, h2, h3, h4, h5, h6, p {
                 padding-top: 154px;
                 .crew-role {
                     text-transform: uppercase;
-                    font-family: $bellefair;
-                    font-size: 2rem;
-                    color: $white-05;
+                    @include font($bellefair, 2rem, $white-05);
                 }
                 .crew-name {
                     padding-top: 15px;
-                    font-family: $bellefair;
-                    font-size: 3.5rem;
+                    @include font($bellefair, 3.5rem, $white);
                     text-transform: uppercase;
-                    color: $white;
                 }
                 .crew-bio {
                     padding-top: 27px;
@@ -335,9 +303,7 @@ h1, h2, h3, h4, h5, h6, p {
                         text-decoration: none;
                         border-radius: 50%;
                         border: 1px solid $span-color;
-                        font-family: $bellefair;
-                        font-size: 2rem;
-                        color: $white;
+                        @include font($bellefair, 2rem, $white);
                     }
                     a.active {
                         background-color: $white;
@@ -346,18 +312,12 @@ h1, h2, h3, h4, h5, h6, p {
                 }
                 .tool-text-content {
                     .terminology {
-                        font-family: $barlow-condensed;
-                        font-size: 1rem;
-                        letter-spacing: 2.7px;
-                        color: $light-blue;
+                        @include font($barlow-condensed, 1rem, $light-blue, 400, normal, 2.7px);
                     }
                     h3 {
                         padding-top: 11px;
                         text-transform: uppercase;
-                        font-family: $bellefair;
-                        font-size: 3.5rem;
-                        font-weight: 400;
-                        color: $white;
+                        @include font($bellefair, 3.5rem, $white, 400);
                     }
                     .tool-description {
                         padding-top: 17px;
@@ -694,6 +654,9 @@ h1, h2, h3, h4, h5, h6, p {
             }
         }
         .technology {
+            .section-content {
+                min-height: 622px;
+            }
             .technology-card {
                 .tool-image {
                     margin-top: 2rem;

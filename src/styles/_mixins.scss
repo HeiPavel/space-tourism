@@ -9,3 +9,12 @@
     width: $width;
     height: $height;
 }
+
+@mixin font($family, $size, $color, $weight: 400, $height: normal, $spacing: normal) {
+    font-family: $family;
+    font-size: $size;
+    font-weight: $weight;
+    color: $color;
+    line-height: $height;
+    letter-spacing: $spacing;
+}
