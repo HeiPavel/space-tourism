@@ -23,7 +23,7 @@ export const Technology = () => {
                         <nav>
                             {technology.map((link, index) => (<NavLink key={index} to={link.path}>{index + 1}</NavLink>))}
                         </nav>
-                        <div className="tool-description">
+                        <div className="tool-text-content">
                             <p className="terminology">THE TERMINOLOGY…</p>
                             <Outlet/>
                         </div>

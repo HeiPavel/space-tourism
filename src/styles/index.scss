@@ -344,7 +344,7 @@ h1, h2, h3, h4, h5, h6, p {
                         color: $active-link-color;
                     }
                 }
-                .tool-description {
+                .tool-text-content {
                     .terminology {
                         font-family: $barlow-condensed;
                         font-size: 1rem;
@@ -503,6 +503,40 @@ h1, h2, h3, h4, h5, h6, p {
                 }
             }
         }
+        .technology {
+            justify-content: normal;
+            .technology-card {
+                @include flex(normal, center, column-reverse);
+                .tool-image {
+                    margin-top: 60px;
+                    flex: unset;
+                    width: 100%;
+                }
+                .technology-text-content {
+                    margin-top: 56px;
+                    @include flex(normal, center, column);
+                    gap: 44px;
+                    nav {
+                        flex-direction: row;
+                        gap: 1rem;
+                        a {
+                            @include size(60px, 60px);
+                            font-size: 1.5rem;
+                        }
+                    }
+                    .tool-text-content {
+                        text-align: center;
+                        h3 {
+                            padding-top: 1rem;
+                            font-size: 2.5rem;
+                        }
+                        .tool-description {
+                            padding-top: 1rem;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -656,6 +690,34 @@ h1, h2, h3, h4, h5, h6, p {
                     align-self: unset;
                     @include size(100%, 223px);
                     border-bottom: 1px solid $light-gray;
+                }
+            }
+        }
+        .technology {
+            .technology-card {
+                .tool-image {
+                    margin-top: 2rem;
+                }
+                .technology-text-content {
+                    margin-top: 34px;
+                    gap: 26px;
+                    nav {
+                        a {
+                            @include size(40px, 40px);
+                            font-size: 1rem;
+                        }
+                    }
+                    .tool-text-content {
+                        padding: 0 1.5rem;
+                        .terminology {
+                            font-size: 0.875rem;
+                            letter-spacing: 2.36px;
+                        }
+                        h3 {
+                            padding-top: 9px;
+                            font-size: 1.5rem;
+                        }
+                    }
                 }
             }
         }
