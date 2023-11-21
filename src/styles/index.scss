@@ -127,6 +127,7 @@ h1, h2, h3, h4, h5, h6, p {
     main {
         display: flex;
         flex-grow: 1;
+        min-height: 770px;
     }
     section {
         flex-grow: 1;
@@ -355,6 +356,9 @@ h1, h2, h3, h4, h5, h6, p {
             nav::after {
                 display: none;
             }
+        }
+        main {
+            min-height: unset;
         }
         section {
             margin-top: 40px;
